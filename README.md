@@ -25,6 +25,11 @@ Challenges for challenges completed before Wakatime integrations is not known.
 <b>Day 2</b>: <i>Unknown</i><br>
 <b>Day 1</b>: <i>Unknown</i>
 </details>
+
+<details>
+<summary>2015 Time-Checks</summary>
+<b>Day 4</b>: <i>Unknown</i>
+</details>
 </div>
 
 > *All challenges are solved in C. Some challenges have a second solution in Python to work on my list-processing skills.*
