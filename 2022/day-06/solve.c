@@ -5,10 +5,12 @@
 
 int compare(const void *a, const void *b) { return *(char *)a - *(char *)b; }
 
-int unique(char *string, size_t length) {
+int unique(char *string, size_t length)
+{
     qsort(string, length, sizeof(char), compare);
 
-    for (size_t i = 0; i < length - 1; ++i) {
+    for (size_t i = 0; i < length - 1; ++i)
+    {
         if (string[i] == string[i + 1])
             return 0;
     }
@@ -27,15 +29,16 @@ int solve(FILE *fp, int strlen)
 
     // parse the file
     int i = 0;
-    while (i < read - strlen) {
+    while (i < read - strlen)
+    {
         // build a copy of the string
         char *string = malloc(strlen * sizeof(char));
         for (size_t j = 0; j < strlen; ++j)
             string[j] = line[i + j];
 
-
         // check uniqueness
-        if (unique(string, strlen)) {
+        if (unique(string, strlen))
+        {
             free(string);
             return i + strlen;
         }
