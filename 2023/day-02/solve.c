@@ -25,23 +25,23 @@ int one(FILE *fp)
         strip(line);
 
         // get game number
-        char** g = split(line, ":", &num_tokens);
-        char const* n = split( g[0], " ", &num_tokens)[1];
+        char **g = split(line, ":", &num_tokens);
+        char const *n = split(g[0], " ", &num_tokens)[1];
 
         // get list of turns
         size_t num_turns;
-        char** t = split(g[1], ";", &num_turns);
+        char **t = split(g[1], ";", &num_turns);
         // iterate through all turns
         for (size_t i = 0; i < num_turns; ++i)
         {
             // for each enum, check the letters
             size_t num_enums;
-            char** e = split(strip(t[i]), ",", &num_enums);
+            char **e = split(strip(t[i]), ",", &num_enums);
             for (size_t j = 0; j < num_enums; ++j)
             {
                 // get key value
-                char const* i = split(strip(e[j]), " ", &num_tokens)[0];
-                char const* v = split(strip(e[j]), " ", &num_tokens)[1];
+                char const *i = split(strip(e[j]), " ", &num_tokens)[0];
+                char const *v = split(strip(e[j]), " ", &num_tokens)[1];
 
                 // check if conditions are met
                 int pass = 1;
@@ -77,19 +77,19 @@ int two(FILE *fp)
 
         // get list of turns
         size_t num_turns;
-        char const* g = split(line, ":", NULL)[1];
-        char** t = split(g, ";", &num_turns);
+        char const *g = split(line, ":", NULL)[1];
+        char **t = split(g, ";", &num_turns);
         // iterate through all turns
         for (size_t i = 0; i < num_turns; ++i)
         {
             // for each enum, check the letters
             size_t num_enums;
-            char** e = split(strip(t[i]), ",", &num_enums);
+            char **e = split(strip(t[i]), ",", &num_enums);
             for (size_t j = 0; j < num_enums; ++j)
             {
                 // get key value
-                char const* k = split(strip(e[j]), " ", NULL)[0];
-                char const* v = split(strip(e[j]), " ", NULL)[1];
+                char const *k = split(strip(e[j]), " ", NULL)[0];
+                char const *v = split(strip(e[j]), " ", NULL)[1];
 
                 // get the power
                 if (strcmp(v, "red") == 0)
