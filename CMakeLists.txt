@@ -3,5 +3,8 @@ project(AdventOfCode C)
 
 set(CMAKE_C_STANDARD 99)
 
+include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+add_library(advent STATIC advent.c)
+
 add_subdirectory(2022)
 add_subdirectory(2023)
