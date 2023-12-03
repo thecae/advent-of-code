@@ -2,7 +2,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "advent.h"
+#include <string.h>
+#include <advent.h>
 
 typedef struct Max
 {
