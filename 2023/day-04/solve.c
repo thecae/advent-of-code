@@ -5,39 +5,39 @@
 #include <advent.h>
 
 size_t nlines = 0;
-char *** vert = NULL;
-char *** winning = NULL;
-char *** given = NULL;
+char ***vert = NULL;
+char ***winning = NULL;
+char ***given = NULL;
 size_t n_given = 0, n_win = 0;
 
-void get_data(FILE* fp)
+void get_data(FILE *fp)
 {
-    char** lines = readlines(fp, &nlines);
-    vert = malloc(nlines * sizeof(char **));
-    winning = malloc(nlines * sizeof(char **));
-    given = malloc(nlines * sizeof(char **));
+	char **lines = readlines(fp, &nlines);
+	vert = malloc(nlines * sizeof(char **));
+	winning = malloc(nlines * sizeof(char **));
+	given = malloc(nlines * sizeof(char **));
 
-    for (size_t n = 0; n < nlines; ++n)
-    {
-        vert[n] = split(lines[n], "|", NULL);
-        winning[n] = split(strip(split(vert[n][0], ":", NULL)[1]), " ", &n_win);
-        given[n] = split(strip(vert[n][1]), " ", &n_given);
-    }
+	for (size_t n = 0; n < nlines; ++n)
+	{
+		vert[n] = split(lines[n], "|", NULL);
+		winning[n] = split(strip(split(vert[n][0], ":", NULL)[1]), " ", &n_win);
+		given[n] = split(strip(vert[n][1]), " ", &n_given);
+	}
 
-    free(lines);
+	free(lines);
 }
 
 void free_data()
 {
-    for (size_t n = 0; n < nlines; ++n)
-    {
-        free(vert[n]);
-        free(winning[n]);
-        free(given[n]);
-    }
-    free(vert);
-    free(winning);
-    free(given);
+	for (size_t n = 0; n < nlines; ++n)
+	{
+		free(vert[n]);
+		free(winning[n]);
+		free(given[n]);
+	}
+	free(vert);
+	free(winning);
+	free(given);
 }
 
 int one()
@@ -46,7 +46,7 @@ int one()
 	for (size_t n = 0; n < nlines; ++n)
 	{
 		int card = 0;
-        char** w = winning[n], **g = given[n];
+		char **w = winning[n], **g = given[n];
 		for (size_t i = 0; i < n_given; ++i)
 		{
 			for (size_t j = 0; j < n_win; ++j)
@@ -70,11 +70,11 @@ int two()
 	for (int i = 0; i < nlines; ++i)
 		cards[i] = 1;
 
-    int two = 0;
-    for (size_t n = 0; n < nlines; ++n)
+	int two = 0;
+	for (size_t n = 0; n < nlines; ++n)
 	{
 		int card = 0;
-        char** w = winning[n], **g = given[n];
+		char **w = winning[n], **g = given[n];
 		for (size_t i = 0; i < n_given; i++)
 		{
 			for (size_t j = 0; j < n_win; j++)
@@ -104,11 +104,11 @@ int main()
 		exit(EXIT_FAILURE);
 	}
 
-    get_data(fp);
+	get_data(fp);
 	printf("ONE: %d\n", one());
 	printf("TWO: %d\n", two());
 
-    free_data();
+	free_data();
 	fclose(fp);
 	return 0;
 }
