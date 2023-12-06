@@ -76,9 +76,8 @@ int main()
 
 	get_data(fp);
 
-	printf("ONE: %d\n", one(fp));
-	fseek(fp, 0, 0);
-	printf("TWO: %d\n", two(fp));
+	printf("ONE: %d\n", one());
+	printf("TWO: %ld\n", two());
 
 	free(times);
 	free(dists);
