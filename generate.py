@@ -84,9 +84,38 @@ def py_write():
 
     os.chdir(f"{year}")
 
-    os.chdir("..")
+    filename = f"day{int(day):02d}.py"
+    with open(filename, "w") as f:
+        f.write("one = 0\n")
+        f.write('print(f"ONE: {one}")\n')
+        f.write("two = 0\n")
+        f.write('print(f"TWO: {two}")\n')
+
+    os.chdir("../..")
+
+def hs_write():
+    os.chdir("Haskell")
+    try:
+        os.mkdir(f"{year}")
+    except FileExistsError:
+        pass
+
+    os.chdir(f"{year}")
+
+    filename = f"Day{int(day):02d}.hs"
+    with open(filename, "w") as f:
+        f.write("module DayXX where\n")
+        f.write("\n")
+        f.write("one :: String -> Int\n")
+        f.write("one = undefined\n")
+        f.write("\n")
+        f.write("two :: String -> Int\n")
+        f.write("two = undefined\n")
+
+    os.chdir("../..")
 
 
 # call our handless
 c_write()
 py_write()
+hs_write()
