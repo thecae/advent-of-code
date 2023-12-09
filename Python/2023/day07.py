@@ -1,10 +1,14 @@
-from aocd import get_data
+"""
+--- Day 7: Camel Cards ---
+"""
 import collections
+from aocd import get_data
 
 lines = [x.strip() for x in get_data(day=7, year=2023).split("\n")]
 
 
 def one(h):
+    """Gets priority tuple for hand"""
     h2 = ["J23456789TXQKA".index(i) for i in h]
     p = tuple(sorted(collections.Counter(h).values()))
     t = [
@@ -20,6 +24,7 @@ def one(h):
 
 
 def two(h):
+    """Gets priority tuple for list of hands"""
     h2 = ["J23456789TXQKA".index(i) for i in h]
     l = []
     for c in "J23456789TQKA":
