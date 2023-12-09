@@ -1,6 +1,7 @@
+from aocd import get_data
 from functools import reduce
 
-data = open("../_input/2023/day06.txt", "r").readlines()
+data = get_data(day=6, year=2023).split("\n")
 times = list(map(int, data[0].split(":")[1].strip().split()))
 dists = list(map(int, data[1].split(":")[1].strip().split()))
 

@@ -1,6 +1,7 @@
+from aocd import get_data
 import collections
 
-lines = [i.strip() for i in open("../_input/2023/day07.txt").readlines()]
+lines = [x.strip() for x in get_data(day=7, year=2023).split("\n")]
 
 
 def one(h):

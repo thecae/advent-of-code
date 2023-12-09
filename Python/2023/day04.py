@@ -1,6 +1,7 @@
+from aocd import get_data
 from functools import reduce
 
-data = [x.strip() for x in open("../_input/2023/day04.txt")]
+data = [x.strip() for x in get_data(day=4, year=2023).split("\n")]
 
 one = 0
 for x in data:

@@ -1,7 +1,8 @@
+from aocd import get_data
 from functools import reduce
 from math import gcd
 
-data = [x.strip() for x in open("../_input/2023/day08.txt", "r").readlines()]
+data = [x.strip() for x in get_data(day=8, year=2023).split("\n")]
 
 def gen_tree(d):
     tree = {}

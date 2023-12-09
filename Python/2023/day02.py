@@ -1,4 +1,6 @@
-data = open("../_input/2023/day02.txt").read().splitlines()
+from aocd import get_data
+
+data = get_data(day=2, year=2023).split("\n")
 
 red = 12
 green = 13
