@@ -14,9 +14,7 @@ for line in data:
     # backtrack, adding predicted value to each list
     p.reverse()
     for i, a in enumerate(p):
-        if i == 0:
-            continue
-        else:
+        if i != 0:
             a.append(p[i - 1][-1] + a[-1])
             a.insert(0, a[0] - p[i - 1][0])
 
